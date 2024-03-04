@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Map Example</title>
+<style>
+  #dialler img {
+    border: 1px solid black;
+  }
+</style>
+</head>
+<body>
+  <div id="dialler">
+    <img src="keypad.png" style="height:200px; width:200px;" alt="Phone Keypad" usemap="#keypad">
+    <map name="keypad">
+      <area shape="circle" coords="40,40,30" href="#" alt="Button 1" onclick="alert('You pushed button 1')">
+      <area shape="circle" coords="90,40,30" href="#" alt="Button 2" onclick="alert('You pushed button 2')">
+      <area shape="circle" coords="140,40,30" href="#" alt="Button 3" onclick="alert('You pushed button 3')">
+      <area shape="circle" coords="40,90,30" href="#" alt="Button 4" onclick="alert('You pushed button 4')">
+      <area shape="circle" coords="90,90,30" href="#" alt="Button 5" onclick="alert('You pushed button 5')">
+      <area shape="circle" coords="140,90,30" href="#" alt="Button 6" onclick="alert('You pushed button 6')">
+      <area shape="circle" coords="40,140,30" href="#" alt="Button 7" onclick="alert('You pushed button 7')">
+      <area shape="circle" coords="90,140,30" href="#" alt="Button 8" onclick="alert('You pushed button 8')">
+      <area shape="circle" coords="140,140,30" href="#" alt="Button 9" onclick="alert('You pushed button 9')">
+      <area shape="circle" coords="40,190,30" href="#" alt="Button *" onclick="alert('You pushed button *')">
+      <area shape="circle" coords="90,190,30" href="#" alt="Button 0" onclick="alert('You pushed button 0')">
+      <area shape="circle" coords="140,190,30" href="#" alt="Button #" onclick="alert('You pushed button #')">
+    </map>
+  </div>
+</body>
+</html>
