@@ -49,7 +49,7 @@
       <button class="btn" onclick="appendValue('3')">3</button>
       <button class="btn" onclick="appendOperation('*')">*</button>
       <button class="btn" onclick="appendValue('0')">0</button>
-      <button class="btn" onclick="appendValue('%')">%</button>
+      <button class="btn" onclick="appendOperation('%')">%</button>
       <button class="btn" onclick="appendValue('.')">.</button>
       <button class="btn" onclick="appendOperation('/')">/</button>
     </div>
@@ -98,6 +98,9 @@
           break;
         case '/':
           result = firstOperand / secondOperand;
+          break;
+        case '%':
+          result = firstOperand % secondOperand;
           break;
       }
 
