@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    .calculator {
+      width: 200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .display {
+      width: 178px;
+      padding: 10px;
+      font-size: 24px;
+      text-align: right;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+      margin-top: 5px;
+    }
+    .btn {
+      padding: 10px;
+      font-size: 18px;
+    }
+    #broad-button {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 6px;
+        margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" class="display" id="display" disabled>
+    <div class="buttons">
+      <button class="btn" onclick="appendValue('7')">7</button>
+      <button class="btn" onclick="appendValue('8')">8</button>
+      <button class="btn" onclick="appendValue('9')">9</button>
+      <button class="btn" onclick="appendOperation('+')">+</button>
+      <button class="btn" onclick="appendValue('4')">4</button>
+      <button class="btn" onclick="appendValue('5')">5</button>
+      <button class="btn" onclick="appendValue('6')">6</button>
+      <button class="btn" onclick="appendOperation('-')">-</button>
+      <button class="btn" onclick="appendValue('1')">1</button>
+      <button class="btn" onclick="appendValue('2')">2</button>
+      <button class="btn" onclick="appendValue('3')">3</button>
+      <button class="btn" onclick="appendOperation('*')">*</button>
+      <button class="btn" onclick="appendValue('0')">0</button>
+      <button class="btn" onclick="appendValue('%')">%</button>
+      <button class="btn" onclick="appendValue('.')">.</button>
+      <button class="btn" onclick="appendOperation('/')">/</button>
+    </div>
+
+      <div id="broad-button">
+        <button class="btn" onclick="calculate()">=</button>
+        <button class="btn" onclick="clear()">C</button>
+      </div>
+      
+    
+  </div>
+
+  <script>
+    let displayValue = '';
+    let currentOperator = null;
+    let firstOperand = null;
+
+    function appendValue(value) {
+      displayValue += value;
+      updateDisplay();
+    }
+
+    function appendOperation(operation) {
+      if (currentOperator !== null) {
+        calculate();
+      }
+      currentOperator = operation;
+      firstOperand = parseFloat(displayValue);
+      displayValue = '';
+    }
+
+    function calculate() {
+      if (currentOperator === null) return;
+      const secondOperand = parseFloat(displayValue);
+      let result;
+
+      switch (currentOperator) {
+        case '+':
+          result = firstOperand + secondOperand;
+          break;
+        case '-':
+          result = firstOperand - secondOperand;
+          break;
+        case '*':
+          result = firstOperand * secondOperand;
+          break;
+        case '/':
+          result = firstOperand / secondOperand;
+          break;
+      }
+
+      displayValue = result.toString();
+      updateDisplay();
+      currentOperator = null;
+      firstOperand = null;
+    }
+
+    function updateDisplay() {
+      document.getElementById('display').value = displayValue;
+    }
+  </script>
+</body>
+</html>
