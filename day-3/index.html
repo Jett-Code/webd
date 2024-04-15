@@ -56,7 +56,7 @@
 
       <div id="broad-button">
         <button class="btn" onclick="calculate()">=</button>
-        <button class="btn" onclick="clear()">C</button>
+        <button class="btn" onclick="clear_button()">C</button>
       </div>
       
     
@@ -79,6 +79,12 @@
       currentOperator = operation;
       firstOperand = parseFloat(displayValue);
       displayValue = '';
+    }
+
+    function clear_button() {
+      updateDisplay();
+      document.getElementById('display').value = ""
+      
     }
 
     function calculate() {
